@@ -1,6 +1,6 @@
 export const songsList = [{
     "id": "1",
-    "url": "../../music/cheer-up.mp3",
+    "url": "https://www.dropbox.com/s/j8t2ed7ke21dgh5/cheer-up.mp3?dl=1",
     "time": "03:28",
     "title": "Cheer Up",
     "artist": "Twice"

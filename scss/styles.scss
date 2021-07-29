@@ -1,0 +1,334 @@
+@import './variables';
+@import './mixins';
+
+*, ::before, ::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    min-width: 320px;
+    font-family: 'Poppins', sans-serif;
+    background-color: $gray900;
+    color: $gray100;
+}
+
+.button{
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    font-size: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 6px 18px;
+
+    @media (min-width: 375px){
+        font-size: 12px;
+        padding: 6px 20px;
+    }
+
+    @include breakpoint-up(medium){
+        font-size: 14px;
+        padding: 6px 24px;
+    }
+}
+.al-fe{
+    display: flex;
+    align-items: flex-end;
+}
+
+.al-c{
+    display: flex;
+    align-items: center;
+}
+
+.container-min{
+    
+    @include breakpoint-up(xlarge){
+        min-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.container-max{
+
+    @include breakpoint-up(xlarge){
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.bg-glass{
+    height: 100%;
+    width: 100%;
+    background-color: rgba($gray900, 0.5);
+}
+
+.player{
+
+
+//Player Header
+    &__header{
+        width: 100%;
+        height: 30vh;
+        padding: $padding320;
+        background: linear-gradient(to bottom, $pink600, darken($pink600, 30%));
+    }
+
+    &__thumbnail{
+        width: 110px;
+        height: 110px;
+        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+
+        @media (min-width: 375px){
+            width: 130px;
+            height: 130px;
+        }
+
+        @include breakpoint-up(medium){
+            width: 150px;
+            height: 150px;
+        }
+
+        @include breakpoint-up(xlarge){
+            width: 180px;
+            height: 180px;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__info-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 20px;
+
+        @media (min-width: 375px){
+            margin-left: 25px;
+        }
+    }
+
+    &__name{
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 0px;
+
+        @media (min-width: 375px){
+            font-size: 20px;
+        }
+
+        @include breakpoint-up(medium){
+            font-size: 30px;
+        }
+
+        @include breakpoint-up(large){
+            font-size: 40px;
+        }
+
+        @include breakpoint-up(xlarge){
+            font-size: 50px;
+        }
+
+    }
+
+    &__count-wrapper{
+        font-size: 10px;
+        font-weight: 400;
+        color: $gray300;
+        margin-bottom: 18px;
+
+        @media (min-width: 375px){
+            font-size: 12px;
+        }
+
+        @include breakpoint-up(medium){
+            font-size: 14px;
+        }
+    }
+
+    .btn-pink{
+        background: $pink200;
+        color: $gray800;
+
+        &:hover{
+            background-color: darken($pink200, 4%);
+        }
+    }
+
+
+
+//Player Body
+    &__body{
+        height: 58vh;
+        background: linear-gradient(to bottom, darken($pink600, 30%) 20%, $gray900 60%);
+
+        //playlist
+    }
+
+//Player Footer
+    &__footer{
+        height: 12vh;
+        background-color: $gray900;
+        border-top: 1px solid rgba($gray600, 0.2);
+        box-shadow: 0px -20px 50px 0px rgba(0, 0, 0, 0.2);
+
+        .track-bar{
+            position: relative;
+            width: 100%;
+            height: 1px;
+
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    // left: 0px;
+                    z-index: 1;
+                    height: 100%;
+                    // width: 100%;
+                    background: linear-gradient(to right, $gray900 2%, rgba(0,0,0,0) 4% 96%, $gray900 98%);
+
+                    @include breakpoint-up(xlarge){
+                        width: 105%;
+                        left: -30px;
+                    }
+                }
+
+            @include breakpoint-up(medium){
+                height: 2px;
+            }
+
+            @include breakpoint-up(xlarge){
+
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: -7px;
+                    left: 0;
+                    width: 100%;
+                    height: 15px;
+                    border-right: 1px solid rgba($gray600, 0.3);
+                    border-left: 1px solid rgba($gray600, 0.3);
+                }
+            }
+
+            &__fill{
+                width: 0%;
+                height: 100%;
+                // background: linear-gradient(to right, $gray900 2%, $pink500 5% 95%, $gray900 98%);
+                background-color: $pink500;
+            }
+        }
+    }
+}
+
+.playlist{
+    text-decoration: none;
+    padding: $padding320;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar{
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        background-color: rgba($gray900, 0);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: $gray600;
+        border-radius: 10px;
+    }
+
+    @include breakpoint-up(xlarge){
+        padding-right: 20px;
+        padding-left:  0;
+    }
+
+    &__song{
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        padding: 5px $padding320;
+
+        &:not(:last-child){
+            margin-bottom: 6px;
+        }
+
+        &:hover{
+            background-color: rgba($gray50, 0.1 );
+        }
+    }
+
+    &__song-active{
+        transition: all 0.3s ease;
+        background-color: rgba($gray50, 0.2 );
+    }
+
+    .play-pause{
+
+        .fa{
+            font-size: 12px;
+
+            @include breakpoint-up(medium){
+                font-size: 14px;
+            }
+        }
+
+        .fa-play{
+            color: $pink200;
+        }
+
+        .fa-pause{
+            color: $pink400;
+        }
+    }
+
+    &__song-details{
+        font-weight: 400;
+        margin-left: 20px;
+    }
+
+    &__song-name{
+        font-size: 14px;
+
+        @include breakpoint-up(medium){
+            font-size: 16px;
+        }
+    }
+
+    &__song-artist{
+        font-size: 12px;
+        display: block;
+        color: $gray400;
+        margin-top: -2px;
+
+        @include breakpoint-up(medium){
+            font-size: 14px;
+        }
+    }
+
+    &__song-duration{
+        font-size: 12px;
+        color: $gray400;
+        padding-top: 4px;
+        margin-left: auto;
+
+        @include breakpoint-up(medium){
+            font-size: 14px;
+        }
+    }
+}

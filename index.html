@@ -9,6 +9,7 @@
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         />
+        <link rel="icon" href="./images/Vector.svg" />
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
             rel="stylesheet"
@@ -20,22 +21,33 @@
         <div class="app">
             <div class="container">
                 <div class="player">
-                    <div class="player__header al-c">
-                        <div class="al-fe container-min">
+                    <div class="player__header">
+                        <div class="wrapper container-max">
                             <div class="player__thumbnail">
                                 <img
-                                    src="./images/cover.jpg"
+                                    src="./images/playlist-cover.jpeg"
                                     alt="Music Player Thumbnail"
                                 />
                             </div>
                             <div class="player__info-wrapper">
-                                <h1 class="player__name">Music Player</h1>
+                                <span class="player__playlist-name"
+                                    >Mix Playlist</span
+                                >
+                                <h1 class="player__name">
+                                    Feel-Good Favourites
+                                </h1>
+                                <span class="player__artist">
+                                    <a
+                                        href="https://open.spotify.com/track/1yjY7rpaAQvKwpdUliHx0d"
+                                        target="_blank"
+                                        >Paramore</a
+                                    >
+                                    and more
+                                </span>
                                 <div class="player__count-wrapper">
-                                    <span class="player__count">7</span> songs
+                                    <span class="player__count">0</span> songs •
+                                    34 min 37 sec
                                 </div>
-                                <button class="button btn-pink player__trigger">
-                                    Play
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -47,9 +59,16 @@
                         </div>
                     </div>
                     <div class="player__footer">
-                        <div class="container-max">
-                            <div class="track-bar">
-                                <div class="track-bar__fill"></div>
+                        <div class="wrapper container-max">
+                            <button class="btn-play player__trigger">
+                                <i class="fa fa-play pp-icon"></i>
+                            </button>
+                            <div class="track">
+                                <span class="track__current-time">0:00</span>
+                                <div class="track__bar">
+                                    <div class="track__bar-fill"></div>
+                                </div>
+                                <span class="track__full-time">0:00</span>
                             </div>
                         </div>
                     </div>

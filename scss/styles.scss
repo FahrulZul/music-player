@@ -1,331 +1,344 @@
-@import './variables';
-@import './mixins';
+@import "./variables";
+@import "./mixins";
 
-*, ::before, ::after{
+*,
+::before,
+::after {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     min-width: 320px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     background-color: $gray900;
-    color: $gray100;
+    color: white;
 }
 
-.button{
-    font-family: 'Poppins', sans-serif;
+button {
+    font-family: "Poppins", sans-serif;
     cursor: pointer;
     outline: none;
     border: none;
-    border-radius: 15px;
-    font-size: 10px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    padding: 6px 18px;
-
-    @media (min-width: 375px){
-        font-size: 12px;
-        padding: 6px 20px;
-    }
-
-    @include breakpoint-up(medium){
-        font-size: 14px;
-        padding: 6px 24px;
-    }
-}
-.al-fe{
-    display: flex;
-    align-items: flex-end;
 }
 
-.al-c{
+.al-c {
     display: flex;
     align-items: center;
 }
 
-.container-min{
-    
-    @include breakpoint-up(xlarge){
+.container-min {
+    @include breakpoint-up(xlarge) {
         min-width: 1200px;
         margin: 0 auto;
     }
 }
 
-.container-max{
-
-    @include breakpoint-up(xlarge){
+.container-max {
+    @include breakpoint-up(xlarge) {
         max-width: 1200px;
         margin: 0 auto;
     }
 }
 
-.bg-glass{
+.bg-glass {
     height: 100%;
     width: 100%;
     background-color: rgba($gray900, 0.5);
 }
 
-.player{
-
-
-//Player Header
-    &__header{
+.player {
+    //Player Header
+    &__header {
         width: 100%;
         height: 30vh;
-        padding: $padding320;
-        background: linear-gradient(to bottom, $pink600, darken($pink600, 30%));
+        padding: 20px;
+        background: linear-gradient(to bottom, $green, darken($green, 30%));
     }
 
-    &__thumbnail{
-        width: 110px;
-        height: 110px;
-        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
-        @media (min-width: 375px){
-            width: 130px;
-            height: 130px;
+        @include breakpoint-up(medium) {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+    }
+
+    &__thumbnail {
+        width: 150px;
+        height: 150px;
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+
+        @include breakpoint-up(medium) {
+            width: 230px;
+            height: 230px;
+            margin-bottom: 0;
         }
 
-        @include breakpoint-up(medium){
-            width: 150px;
-            height: 150px;
-        }
-
-        @include breakpoint-up(xlarge){
-            width: 180px;
-            height: 180px;
-        }
-
-        img{
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
     }
 
-    &__info-wrapper{
+    &__info-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        margin-left: 20px;
 
-        @media (min-width: 375px){
+        @include breakpoint-up(medium) {
+            align-items: flex-start;
             margin-left: 25px;
         }
     }
 
-    &__name{
-        font-size: 18px;
+    &__playlist-name {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: none;
+
+        @include breakpoint-up(medium) {
+            display: inline;
+        }
+    }
+
+    &__name {
+        font-size: 25px;
         font-weight: 800;
-        margin-bottom: 0px;
+        line-height: 1;
+        margin-bottom: 15px;
 
-        @media (min-width: 375px){
-            font-size: 20px;
+        @include breakpoint-up(medium) {
+            font-size: 45px;
         }
 
-        @include breakpoint-up(medium){
-            font-size: 30px;
+        @include breakpoint-up(large) {
+            font-size: 65px;
+            margin-top: -5px;
         }
-
-        @include breakpoint-up(large){
-            font-size: 40px;
-        }
-
-        @include breakpoint-up(xlarge){
-            font-size: 50px;
-        }
-
     }
 
-    &__count-wrapper{
-        font-size: 10px;
+    &__artist {
+        font-size: 14px;
+        color: $gray400;
+        margin-bottom: 5px;
+        display: none;
+
+        @include breakpoint-up(medium) {
+            display: inline;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__count-wrapper {
+        font-size: 14px;
         font-weight: 400;
-        color: $gray300;
-        margin-bottom: 18px;
-
-        @media (min-width: 375px){
-            font-size: 12px;
-        }
-
-        @include breakpoint-up(medium){
-            font-size: 14px;
-        }
+        text-align: center;
+        color: $gray400;
     }
 
-    .btn-pink{
-        background: $pink200;
-        color: $gray800;
-
-        &:hover{
-            background-color: darken($pink200, 4%);
-        }
-    }
-
-//Player Body
-    &__body{
+    //Player Body
+    &__body {
         height: 58vh;
-        background: linear-gradient(to bottom, darken($pink600, 30%) 20%, $gray900 60%);
+        background: linear-gradient(
+            to bottom,
+            darken($green, 30%) 20%,
+            $gray900 60%
+        );
 
         //playlist
     }
 
-//Player Footer
-    &__footer{
+    //Player Footer
+    &__footer {
+        width: 100%;
         height: 12vh;
         background-color: $gray900;
         border-top: 1px solid rgba($gray600, 0.2);
         box-shadow: 0px -20px 50px 0px rgba(0, 0, 0, 0.2);
 
-        .track-bar{
+        .wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .btn-play {
             position: relative;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 14px;
+            margin-bottom: 10px;
+
+            .fa {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+
+            .fa-play {
+                transform: translate(-35%, -45%);
+            }
+
+            .fa-pause {
+                transform: translate(-44%, -45%);
+            }
+        }
+
+        .track {
             width: 100%;
-            height: 1px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
 
-                &::after{
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    // left: 0px;
-                    z-index: 1;
-                    height: 100%;
-                    // width: 100%;
-                    background: linear-gradient(to right, $gray900 2%, rgba(0,0,0,0) 4% 96%, $gray900 98%);
-
-                    @include breakpoint-up(xlarge){
-                        width: 105%;
-                        left: -30px;
-                    }
-                }
-
-            @include breakpoint-up(medium){
-                height: 2px;
+            @include breakpoint-up(medium) {
+                width: 60%;
             }
 
-            @include breakpoint-up(xlarge){
-
-                &::before{
-                    content: "";
-                    position: absolute;
-                    top: -7px;
-                    left: 0;
-                    width: 100%;
-                    height: 15px;
-                    border-right: 1px solid rgba($gray600, 0.3);
-                    border-left: 1px solid rgba($gray600, 0.3);
-                }
+            &__current-time,
+            &__full-time {
+                color: $gray400;
+                font-size: 12px;
             }
 
-            &__fill{
+            &__bar {
+                width: 100%;
+                height: 4px;
+                border-radius: 30px;
+                background-color: $gray700;
+            }
+
+            &__bar-fill {
                 width: 0%;
                 height: 100%;
-                // background: linear-gradient(to right, $gray900 2%, $pink500 5% 95%, $gray900 98%);
-                background-color: $pink500;
+                border-radius: 30px;
+                background-color: $gray50;
             }
         }
     }
 }
 
-.playlist{
+.playlist {
     text-decoration: none;
-    padding: $padding320;
+    padding: 20px;
     height: 100%;
     overflow-y: auto;
     scrollbar-width: thin;
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
         width: 4px;
     }
 
-    &::-webkit-scrollbar-track{
-        box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
         background-color: rgba($gray900, 0);
         border-radius: 10px;
     }
 
-    &::-webkit-scrollbar-thumb{
+    &::-webkit-scrollbar-thumb {
         background-color: $gray600;
         border-radius: 10px;
     }
 
-    @include breakpoint-up(xlarge){
+    @include breakpoint-up(xlarge) {
         padding-right: 20px;
-        padding-left:  0;
+        padding-left: 0;
     }
 
-    &__song{
+    &__song {
         width: 100%;
         display: flex;
         align-items: flex-start;
         border-radius: 5px;
         transition: all 0.3s ease;
-        padding: 5px $padding320;
+        padding: 5px 20px;
 
-        &:not(:last-child){
+        &:not(:last-child) {
             margin-bottom: 6px;
         }
 
-        &:hover{
-            background-color: rgba($gray50, 0.1 );
+        &:hover {
+            background-color: rgba($gray50, 0.1);
         }
     }
 
-    &__song-active{
+    &__song-active {
         transition: all 0.3s ease;
-        background-color: rgba($gray50, 0.2 );
+        background-color: rgba($gray50, 0.2);
     }
 
-    .play-pause{
-
-        .fa{
+    .play-pause {
+        .fa {
             font-size: 12px;
 
-            @include breakpoint-up(medium){
+            @include breakpoint-up(medium) {
                 font-size: 14px;
             }
         }
 
-        .fa-play{
-            color: $pink200;
+        .fa-play {
+            color: $gray200;
         }
 
-        .fa-pause{
-            color: $pink400;
+        .fa-pause {
+            color: $gray400;
         }
     }
 
-    &__song-details{
+    &__song-details {
         font-weight: 400;
         margin-left: 20px;
     }
 
-    &__song-name{
+    &__song-name {
         font-size: 14px;
 
-        @include breakpoint-up(medium){
+        @include breakpoint-up(medium) {
             font-size: 16px;
         }
     }
 
-    &__song-artist{
+    &__song-artist {
         font-size: 12px;
         display: block;
         color: $gray400;
         margin-top: -2px;
 
-        @include breakpoint-up(medium){
+        @include breakpoint-up(medium) {
             font-size: 14px;
         }
     }
 
-    &__song-duration{
+    &__song-duration {
         font-size: 12px;
         color: $gray400;
         padding-top: 4px;
         margin-left: auto;
 
-        @include breakpoint-up(medium){
+        @include breakpoint-up(medium) {
             font-size: 14px;
         }
     }
